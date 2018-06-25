@@ -11,4 +11,6 @@ object Main extends App with StrictLogging {
 
   val restApi = RestApi()
   restApi.start
+
+  logger.info("DEVD started.")
 }
