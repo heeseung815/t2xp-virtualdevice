@@ -66,4 +66,18 @@ lazy val virtualdevice = (project in file("."))
     "-Dconfig.file=./conf/application.conf"
   ),
   fork in run := true
-)
+  )
+  // docker settings
+  .enablePlugins(DockerPlugin)
+  .enablePlugins(AshScriptPlugin)
+  .settings(
+    mappings in Docker += file("conf/application.conf") -> "/opt/virtualdevice/conf/application.conf",
+    mappings in Docker += file("conf/process.ini") -> "/opt/virtualdevice/conf/process.ini",
+    packageName in Docker := "virtualdevice",
+    dockerBaseImage := "openjdk:jre-alpine",
+    defaultLinuxInstallLocation in Docker := "/opt/virtualdevice",
+    bashScriptConfigLocation := Some("/opt/virtualdevice/conf/process.ini"),
+    dockerEntrypoint := Seq("/opt/virtualdevice/bin/virtualdevice"),
+    dockerRepository := Some("192.168.7.150:8083"),
+    dockerExposedPorts := Seq(9004)
+  )
