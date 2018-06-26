@@ -64,6 +64,6 @@ object Dependencies {
 
   val uangel = Seq(
 //    "ai.t2x" % "lib-verinfo_2.12" % "1.0.0-SNAPSHOT",
-    "ai.t2x" % "lib-common_2.12" % "1.0.0-SNAPSHOT"
+//    "ai.t2x" % "lib-common_2.12" % "1.0.0-SNAPSHOT"
   )
 }

@@ -1,5 +1,5 @@
 package ai.t2x.virtualdevice.devd.actor
-
+/*
 import java.util.concurrent.atomic.AtomicInteger
 
 import ai.t2x.lib.common.mqtt.{MqttWebSocketPublisher, MqttWebSocketSubscriber}
@@ -95,3 +95,4 @@ case class RequestMessageWithPromise[T](topic: String, msg: Any, prms: Promise[T
 case class ResponsibleMessage(replyTo: String, msg: Any)
 
 case class OutboundPublish(topic: String, msg: Any)
+*/

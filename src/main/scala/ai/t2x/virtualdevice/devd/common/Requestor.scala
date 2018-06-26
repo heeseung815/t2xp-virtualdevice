@@ -1,5 +1,5 @@
 package ai.t2x.virtualdevice.devd.common
-
+/*
 import ai.t2x.virtualdevice.devd.actor.{RequestManagerActor, RequestMessage, RequestMessageWithPromise}
 import akka.actor.{ActorRef, ActorSystem, Props}
 import akka.util.Timeout
@@ -40,3 +40,4 @@ class Requestor(implicit actorSystem: ActorSystem) {
 object Requestor {
   def apply(implicit actorSystem: ActorSystem): Requestor = new Requestor()
 }
+*/

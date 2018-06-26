@@ -1,5 +1,5 @@
 package ai.t2x.virtualdevice.devd.actor
-
+/*
 import ai.t2x.lib.common.mqtt.MqttWebSocketPublisher
 import ai.t2x.lib.common.mqtt.model.{MqttMsgBody, MqttMsgWithoutHeader}
 import ai.t2x.virtualdevice.devd.actor.SchedulerActor.{PublishMqttMessage, ScheduleSetting}
@@ -73,8 +73,10 @@ class SchedulerActor extends Actor with StrictLogging {
     }
   }
 }
-
+*/
+/*
 object SchedulerActor {
   case class ScheduleSetting(deviceId: String, telemetryName: String, interval: Int, count: Int, publisher: MqttWebSocketPublisher)
   case class PublishMqttMessage(publisher: MqttWebSocketPublisher, deviceId: String, telemetryName: String)
 }
+*/

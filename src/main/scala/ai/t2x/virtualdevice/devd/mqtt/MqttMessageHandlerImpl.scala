@@ -1,5 +1,5 @@
 package ai.t2x.virtualdevice.devd.mqtt
-
+/*
 import ai.t2x.lib.common.mqtt.MqttMessageHandler
 import ai.t2x.virtualdevice.devd.actor.OutboundPublish
 import akka.actor.ActorRef
@@ -24,3 +24,4 @@ class MqttMessageHandlerImpl(actor: ActorRef) extends MqttMessageHandler with St
     }
   }
 }
+*/

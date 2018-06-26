@@ -1,10 +1,10 @@
 package ai.t2x.virtualdevice.devd
 
-import ai.t2x.virtualdevice.devd.actor.SchedulerActor
-import ai.t2x.virtualdevice.devd.api.controller.{PromiseTestCtrl, VirtualDeviceCtrl}
+
+import ai.t2x.virtualdevice.devd.api.controller.VirtualDeviceCtrl
 import ai.t2x.virtualdevice.devd.api.swagger.SwaggerDocService
-import ai.t2x.virtualdevice.devd.common.{DevdConfig, Requestor}
-import akka.actor.{ActorRef, ActorSystem, Props}
+import ai.t2x.virtualdevice.devd.common.DevdConfig
+import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.Http.ServerBinding
 import akka.http.scaladsl.model.headers.{Allow, `Access-Control-Allow-Credentials`, `Access-Control-Allow-Headers`, `Access-Control-Max-Age`}
@@ -38,7 +38,7 @@ class RestApi()(implicit actorSystem: ActorSystem) extends Directives with CorsS
 
 //  private val requestor = new Requestor
 
-  private val scheduler: ActorRef = actorSystem.actorOf(Props(new SchedulerActor()))
+//  private val scheduler: ActorRef = actorSystem.actorOf(Props(new SchedulerActor()))
 
   // Allow CORS
   def rejectionHandler: RejectionHandler =
@@ -57,7 +57,7 @@ class RestApi()(implicit actorSystem: ActorSystem) extends Directives with CorsS
   def start: Unit = {
     routes = handleRejections(rejectionHandler) {
       cors {
-        SwaggerDocService.routes ~ VirtualDeviceCtrl(scheduler).route
+        SwaggerDocService.routes ~ VirtualDeviceCtrl(null).route
 //        SwaggerDocService.routes ~ VirtualDeviceCtrl(scheduler).route ~ PromiseTestCtrl(requestor).route
       }
     }

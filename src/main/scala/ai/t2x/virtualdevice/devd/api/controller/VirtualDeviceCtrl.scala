@@ -1,9 +1,10 @@
 package ai.t2x.virtualdevice.devd.api.controller
-
+/*
 import ai.t2x.lib.common.mqtt.MqttWebSocketPublisher
 import ai.t2x.lib.common.mqtt.model.{MqttMsgBody, MqttMsgWithoutHeader}
 import ai.t2x.virtualdevice.devd.actor.SchedulerActor
 import ai.t2x.virtualdevice.devd.actor.SchedulerActor.ScheduleSetting
+*/
 import ai.t2x.virtualdevice.devd.common.DevdJsonProtocol._
 import ai.t2x.virtualdevice.devd.common._
 import akka.actor.{ActorRef, ActorSystem, Props}
@@ -35,7 +36,7 @@ class VirtualDeviceCtrl(scheduler: ActorRef)(implicit actorSystem: ActorSystem) 
 //  private val deviceToken = deviceId.split("-").dropRight(1).mkString
   private val deviceTokenType = 0
 
-  lazy val publisher: MqttWebSocketPublisher = MqttWebSocketPublisher(broker, publisherClientId)
+//  lazy val publisher: MqttWebSocketPublisher = MqttWebSocketPublisher(broker, publisherClientId)
 
   def route: Route = sendTelemetry ~ sendRandomTelemetry ~ createDevice ~ check
 
@@ -104,9 +105,9 @@ class VirtualDeviceCtrl(scheduler: ActorRef)(implicit actorSystem: ActorSystem) 
           entity(as[TelemetryValueModel]) { obj: TelemetryValueModel =>
             logger.info(s">>> telemetryName=$telemetryName, telemetryValue=${obj.value}")
 
-            val o = MqttMsgWithoutHeader(MqttMsgBody("device_telemetry", MqttMsgData4Telemetry(deviceId, deviceId.split("-").dropRight(1).mkString, deviceTokenType, telemetryName, obj.value, System.currentTimeMillis()).toJson))
-            val message = o.toJson.compactPrint
-            publisher.pub(topic, message.getBytes(), qos, null)
+//            val o = MqttMsgWithoutHeader(MqttMsgBody("device_telemetry", MqttMsgData4Telemetry(deviceId, deviceId.split("-").dropRight(1).mkString, deviceTokenType, telemetryName, obj.value, System.currentTimeMillis()).toJson))
+//            val message = o.toJson.compactPrint
+//            publisher.pub(topic, message.getBytes(), qos, null)
 
             complete(StatusCodes.OK)
           }
@@ -132,7 +133,7 @@ class VirtualDeviceCtrl(scheduler: ActorRef)(implicit actorSystem: ActorSystem) 
         parameter('deviceId.as[String], 'telemetryName.as[String], 'interval.as[Int], 'count.as[Int]) { (deviceId: String, telemetryName: String, interval: Int, count: Int) =>
           logger.info(s">>> interval=$interval, count=$count")
 
-          scheduler ! ScheduleSetting(deviceId, telemetryName, interval, count, publisher)
+//          scheduler ! ScheduleSetting(deviceId, telemetryName, interval, count, publisher)
 
           complete(StatusCodes.OK)
         }

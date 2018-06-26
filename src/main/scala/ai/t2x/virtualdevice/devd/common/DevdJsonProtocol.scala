@@ -1,7 +1,8 @@
 package ai.t2x.virtualdevice.devd.common
-
+/*
 import ai.t2x.lib.common.mqtt.model.{MqttMsg, MqttMsgBody, MqttMsgHeader, MqttMsgWithoutHeader}
 import ai.t2x.virtualdevice.devd.actor.ResponsibleMessage
+*/
 import spray.json._
 
 import scala.math.BigDecimal.RoundingMode
@@ -34,20 +35,21 @@ object DevdJsonProtocol extends DefaultJsonProtocol {
       case _ => value
     }
   }
-
+/*
   implicit val mqttMsgData4TelemetryFormat = jsonFormat6(MqttMsgData4Telemetry)
   implicit val mqttMsgBodyFormat = jsonFormat2(MqttMsgBody)
   implicit val mqttMsgHeaderFormat = jsonFormat2(MqttMsgHeader)
   implicit val mqttMsgWithoutHeaderFormat = jsonFormat1(MqttMsgWithoutHeader)
   implicit val mqttMsgFormat = jsonFormat2(MqttMsg)
-
+*/
   implicit val deviceReqModelFormat = jsonFormat1(DeviceReqModel)
   implicit val deviceResModelFormat = jsonFormat3(DeviceResModel)
 
   implicit val telemetryValueModel = jsonFormat1(TelemetryValueModel)
 
-
+/*
   implicit val reposibleMessageFormat = jsonFormat2(ResponsibleMessage)
+*/
 }
 
 case class MqttMsgData4Telemetry(deviceId: String, deviceToken: String, deviceTokenType: Int, telemetryName: String, telemetryValue: Any, timestamp: Long)
