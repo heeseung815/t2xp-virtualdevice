@@ -37,7 +37,15 @@ class VirtualDeviceCtrl(scheduler: ActorRef)(implicit actorSystem: ActorSystem) 
 
   lazy val publisher: MqttWebSocketPublisher = MqttWebSocketPublisher(broker, publisherClientId)
 
-  def route: Route = sendTelemetry ~ sendRandomTelemetry ~ createDevice
+  def route: Route = sendTelemetry ~ sendRandomTelemetry ~ createDevice ~ check
+
+  def check: Route =
+    path("virtualdevice" / "check") {
+      get {
+        logger.info("VirtualDevice Health Check.")
+        complete(StatusCodes.OK)
+      }
+    }
 
   @Path("/create")
   @ApiOperation(code = 201, value = "Create Device", httpMethod = "POST")
