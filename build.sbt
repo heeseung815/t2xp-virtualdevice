@@ -11,10 +11,10 @@ scalaVersion := Dependencies.Versions.scala
 scalacOptions ++= Seq("-feature" /*, "-deprecation" */)
 
 // resolving libraries stored on nexus
-resolvers ++= Seq(
-  "Nexus: maven-snapshots" at "http://192.168.7.150:8081/repository/maven-snapshots",
-  "Nexus: maven-releases" at "http://192.168.7.150:8081/repository/maven-releases"
-)
+//resolvers ++= Seq(
+//  "Nexus: maven-snapshots" at "http://192.168.7.150:8081/repository/maven-snapshots",
+//  "Nexus: maven-releases" at "http://192.168.7.150:8081/repository/maven-releases"
+//)
 
 //excludesourcecodeswhenpublish
 publishArtifact in (Compile, packageSrc) := false
@@ -39,7 +39,7 @@ lazy val virtualdevice = (project in file("."))
 //      ++ Dependencies.phantom
 //      ++ Dependencies.fdb
       ++ Dependencies.mqtt
-      ++ Dependencies.uangel
+//      ++ Dependencies.uangel
   )
   // publish settings
   .settings(
