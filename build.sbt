@@ -78,7 +78,7 @@ lazy val virtualdevice = (project in file("."))
     defaultLinuxInstallLocation in Docker := "/opt/virtualdevice",
     bashScriptConfigLocation := Some("/opt/virtualdevice/conf/process.ini"),
     dockerEntrypoint := Seq("/opt/virtualdevice/bin/virtualdevice"),
-    dockerRepository := Some("192.168.7.150:8083"),
-//    dockerRepository := Some("ec2-52-79-109-16.ap-northeast-2.compute.amazonaws.com:8083"),
+//    dockerRepository := Some("192.168.7.150:8083"),
+    dockerRepository := Some("ec2-52-79-109-16.ap-northeast-2.compute.amazonaws.com:8083"),
     dockerExposedPorts := Seq(9004)
   )
