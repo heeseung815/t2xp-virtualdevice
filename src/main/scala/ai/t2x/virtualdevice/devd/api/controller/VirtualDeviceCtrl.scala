@@ -44,7 +44,7 @@ class VirtualDeviceCtrl(scheduler: ActorRef)(implicit actorSystem: ActorSystem) 
     path("virtualdevice" / "check") {
       get {
         logger.info("VirtualDevice Health Check.")
-        complete("AWS EC2 Test!!!!")
+        complete("AWS EC2 Test!!!!!!!!!!!!!!")
       }
     }
 
